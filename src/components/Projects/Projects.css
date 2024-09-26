@@ -1,0 +1,182 @@
+.portfolio__projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects__filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.75rem;
+  margin-bottom: var(--mb-2);
+}
+
+.projects__filters-item {
+  color: var(--title-color);
+  padding: 0.25rem 0.75rem;
+  font-size: var(--font-medium);
+  border-radius: 0.5rem;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.active__filters-item,
+.projects__filters-item:hover {
+  background-color: var(--title-color);
+  color: var(--container-color);
+}
+
+.projects__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 23em;
+  padding: 1em;
+  background: #fff;
+  box-shadow: 0 0 6px 0 rgba(32, 32, 36, 0.12);
+  transition: all 0.35s ease;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--blue-color);
+  height: 4px;
+}
+
+.card::before {
+  width: 0;
+  opacity: 0;
+  transition: opacity 0 ease, width 0 ease;
+  transition-delay: 0.5s;
+}
+
+.card::after {
+  width: 100%;
+  background: white;
+  transition: width 0.5s ease;
+}
+
+.card .content {
+  width: 100%;
+  max-width: 18em;
+}
+
+.card .h6 {
+  color: var(--title-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+  letter-spacing: 2px;
+}
+
+.card .hover_content {
+  overflow: hidden;
+  max-height: 0;
+  transform: translateY(1em);
+  transition: all 0.55s ease;
+}
+
+.card .hover_content p {
+  margin: 1.5em 0 0;
+  color: #6e6e70;
+  line-height: 1.4em;
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px 0 rgba(32, 32, 36, 0.12);
+}
+
+.card:hover::before {
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.5s ease, width 0.5s ease;
+  transition-delay: 0;
+}
+
+.card:hover::after {
+  width: 0;
+  opacity: 0;
+  transition: width 0 ease;
+}
+
+.card:hover .logo {
+  margin-bottom: 0.5em;
+}
+
+.card:hover .hover_content {
+  max-height: 10em;
+  transform: none;
+}
+
+.project__button {
+  color: var(--text-color);
+  font-size: var(--small-font-size);
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
+  margin: 1rem 0 0 0;
+}
+
+.project__button-icon {
+  font-size: 1rem;
+  transition: 0.4s;
+}
+
+.project__button:hover,
+.project__button:hover .project__button-icon {
+  transform: translate(0.25rem);
+  color: var(--blue-color);
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For large devices */
+@media screen and (max-width: 992px) {
+}
+
+/* For medium devices */
+@media screen and (max-width: 768px) {
+  .projects__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+/* For small devices */
+@media screen and (max-width: 576px) {
+  .projects__container {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .project__img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .projects__filters {
+    column-gap: 0.25rem;
+  }
+
+  .projects__filters-item {
+    font-size: var(--small-font-size);
+  }
+}
